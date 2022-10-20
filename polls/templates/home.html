@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+   {% load static %}
+ 
+ {% block body %}
+ {% for home in homes %}
+ <ul>
+   <li class="text-4xl" >{{home}}</li>
+ </ul>
+
+ {% endfor %}
+
+ 
+ 
+  
+ {% endblock body %}
+    

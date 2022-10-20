@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+   {% load static %}
+   {% load widget_tweaks %}
+ 
+ {% block body %}
+ <form action="" method="post">
+    {% csrf_token %}
+ {% for hidden in form.hidden_fields %}
+ {{ hidden }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+ <div class="form-group">
+   <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+   {{ field |add_class:'px-4 py-3   rounded-md' }}
+   {% for error in field.errors %}
+     <span class="bg-red-600">{{ error }}</span>
+   {% endfor %}
+ </div>
+ {% endfor %}
+ 
+ <button type="submit">submit</button>
+ </form>
+ 
+  
+ {% endblock body %}
